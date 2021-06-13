@@ -1,0 +1,6 @@
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\bin\Debug\Project.ENTITIES.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\bin\Debug\Project.ENTITIES.pdb
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\obj\Debug\Project.ENTITIES.csprojAssemblyReference.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\obj\Debug\Project.ENTITIES.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\obj\Debug\Project.ENTITIES.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.ENTITIES\obj\Debug\Project.ENTITIES.pdb

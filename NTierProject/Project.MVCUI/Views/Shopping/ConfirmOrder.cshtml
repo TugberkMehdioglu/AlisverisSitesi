@@ -1,0 +1,112 @@
+﻿@model OrderVM
+@{
+    ViewBag.Title = "ConfirmOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    .field-validation-error{
+
+        color:red
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Sipariş Onayla
+            </header>
+            <div class="panel-body">
+                <div class="stepy-tab">
+                    <ul id="default-titles" class="stepy-titles clearfix">
+                        <li id="default-title-0" class="current-step">
+                            <div>Kart Bilgileri</div>
+                        </li>
+                    </ul>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    <form class="form-horizontal" id="default">
+                        <fieldset title="Step1" class="step" id="default-step-0">
+                            <legend> </legend>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Kart Üzerindeki İsim Soyisim:</label>
+                                <div class="col-sm-10">
+                                    @Html.ValidationMessageFor(x => x.PaymentDTO.CardUserName)
+                                    @Html.TextBoxFor(x => x.PaymentDTO.CardUserName, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Kart Numarası:</label>
+                                <div class="col-sm-10">
+                                    @Html.ValidationMessageFor(x => x.PaymentDTO.CardNumber)
+                                    @Html.TextBoxFor(x => x.PaymentDTO.CardNumber, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Güvenlik Numarası</label>
+                                <div class="col-sm-10">
+                                    @Html.ValidationMessageFor(x => x.PaymentDTO.SecurityNumber)
+                                    @Html.TextBoxFor(x => x.PaymentDTO.SecurityNumber, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Son Kullanma Tarihi (Ay)</label>
+                                <div class="col-sm-10">
+                                    @Html.ValidationMessageFor(x => x.PaymentDTO.CardExpiryMonth)
+                                    @Html.TextBoxFor(x => x.PaymentDTO.CardExpiryMonth, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Son Kullanma Tarihi (Yıl)</label>
+                                <div class="col-sm-10">
+                                    @Html.ValidationMessageFor(x => x.PaymentDTO.CardExpiryYear)
+                                    @Html.TextBoxFor(x => x.PaymentDTO.CardExpiryYear, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <br /><br />
+
+
+                        </fieldset>
+                        <button class="btn btn-danger pull-right">Sipariş Ver</button>
+                    </form>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+<script>
+
+    //step wizard
+
+    $(function () {
+        $('#default').stepy({
+            backLabel: 'Previous',
+            block: true,
+            nextLabel: 'Next',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+</script>

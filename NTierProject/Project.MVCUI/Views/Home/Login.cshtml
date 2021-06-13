@@ -1,0 +1,96 @@
+﻿@model AppUserVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="~/OuterTools/FlatAdmin/img/favicon.png">
+
+    <title>Alışveriş</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/OuterTools/FlatAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/OuterTools/FlatAdmin/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/OuterTools/FlatAdmin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/OuterTools/FlatAdmin/css/style.css" rel="stylesheet">
+    <link href="~/OuterTools/FlatAdmin/css/style-responsive.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+
+        .field-validation-error{
+
+            color:red;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+<body class="login-body">
+
+    <div style="text-align: center; font-weight:bolder; font-size:medium">
+        <h3 style="color:red">@ViewBag.Kullanici</h3>
+        <h3 style="color:red">@ViewBag.AktifDegil</h3>
+        <h3 style="color:green">@TempData["HesapAktif"]</h3>
+        <h3 style="color:red">@TempData["HesapAktifDegil"]</h3>
+        <h3 style="color:red">@TempData["kullanici"]</h3>
+
+        @if (Session["hata"] != null)
+        {
+            <h3 style="color:red">@Session["hata"]</h3> @*Yetki bildirimi*@
+            Session.Remove("hata");
+        }
+
+    </div>
+
+    <div class="container">
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            if (ViewBag.AktifDegil != null)
+            {
+                <h2 style="color:red">@ViewBag.AktifDegil</h2>//Kullanıcının mail onayı yoksa sayfanın geri kalan kısmını renderlamadık
+            }
+            else
+            {
+                <h2 class="form-signin-heading">Giriş</h2>
+                <div class="login-wrap">
+                    @Html.ValidationMessageFor(x => x.AppUser.UserName)
+                    @Html.TextBoxFor(x => x.AppUser.UserName, new { @class = "form-control", placeholder = "Kullanıcı adı" })
+
+                    @Html.ValidationMessageFor(x => x.AppUser.Password)
+                    @Html.PasswordFor(x => x.AppUser.Password, new { @class = "form-control", placeholder = "Şifre" })
+
+                    <button class="btn btn-lg btn-login btn-block">Giriş Yap</button>
+
+                    <div class="registration">
+                        Üyeliğiniz yok mu?
+                        @Html.ActionLink("Üye ol", "RegisterNow", "Register")
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+
+
+
+</body>
+</html>

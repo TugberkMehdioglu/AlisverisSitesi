@@ -1,0 +1,6 @@
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\bin\Debug\Project.DTO.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\bin\Debug\Project.DTO.pdb
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\obj\Debug\Project.DTO.csprojAssemblyReference.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\obj\Debug\Project.DTO.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\obj\Debug\Project.DTO.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.DTO\obj\Debug\Project.DTO.pdb

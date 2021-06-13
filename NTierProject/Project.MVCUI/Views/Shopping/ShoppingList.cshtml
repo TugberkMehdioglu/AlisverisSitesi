@@ -1,0 +1,84 @@
+﻿@model PAVM
+@{
+    ViewBag.Title = "ShoppingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center" style="color:red">
+
+    <h3>@TempData["sepetBos"]</h3>
+    <h3>@TempData["hata"]</h3>
+    <h3 style="color:green">@TempData["odeme"]</h3>
+    <h3>@TempData["sorun"]</h3>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <section class="panel">
+            <header class="panel-heading">
+                Kategoriler
+            </header>
+            <div class="panel-body">
+                <ul class="nav prod-cat">
+                    @foreach (Category item in Model.Categories)
+                    {
+                        <li><a href="@Url.Action("ShoppingList", new { categoryID=item.ID})"><i class=" icon-angle-right"></i> @item.Name</a></li>
+                    }
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-9">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="pull-right">
+                    <ul class="pagination pagination-sm pro-page-list">
+                        @if (ViewBag.CatID != null)
+                        {
+                            <li>@Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page, categoryID = ViewBag.CatID }))</li>
+                        }
+                        else
+                        {
+                            <li>@Html.PagedListPager(Model.PagedProducts, page => Url.Action("ShoppingList", new { page }))</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="row product-list">
+            @foreach (Product item in Model.PagedProducts)
+            {
+                <div class="col-md-4">
+                    <section class="panel">
+                        <div class="pro-img-box">
+                            <img src="@item.ImagePath" alt="Resim Yok" title="@item.Name" width="222" height="279" />
+                            <a href="@Url.Action("AddToCart", new { id=item.ID})" class="adtocart">
+                                <i class="icon-shopping-cart"></i>
+                            </a>
+                        </div>
+
+                        <div class="panel-body text-center">
+                            <h4>
+                                <a href="#" class="pro-title" title="@item.Name">
+                                    @item.Name
+                                </a>
+                            </h4>
+                            <p class="price">$@item.UnitPrice</p>
+                        </div>
+                    </section>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@if (Session["member"] != null)
+{
+    @section Sepet{
+
+        <li><a href="@Url.Action("CartPage")"><i class="icon-shopping-cart"></i> Sepet</a></li>
+    }
+}
+

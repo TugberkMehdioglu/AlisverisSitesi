@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterOk</title>
+    <script src="~/OuterTools/FlatAdmin/js/jquery.js"></script>
+    <script src="~/OuterTools/FlatAdmin/js/bootstrap.js"></script>
+</head>
+<body>
+    <div style="text-align:center; margin-top:25%">
+        <h2 style="color:green">Tebrikler kayıt işleminiz başarıyla gerçekleşti. Lütfen email adresinize yolladığımız linke tıklayarak hesabınızı aktif hale getiriniz</h2>
+    </div>
+</body>
+</html>
+
+<script>
+
+    setTimeout(function () {
+
+        window.location = "/Home/Login";
+    }, 5000) /*Bu View açıldığında bizi 5000ms (5 saniye) sonra belirlediğimiz sayfaya yönlendiricek*/
+
+</script>

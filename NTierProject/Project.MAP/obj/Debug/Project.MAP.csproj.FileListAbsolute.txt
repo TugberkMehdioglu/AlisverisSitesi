@@ -1,0 +1,14 @@
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\Project.MAP.dll.config
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\Project.MAP.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\Project.MAP.pdb
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\EntityFramework.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\Project.ENTITIES.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\Project.ENTITIES.pdb
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\EntityFramework.xml
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\obj\Debug\Project.MAP.csprojAssemblyReference.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\obj\Debug\Project.MAP.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\obj\Debug\Project.MAP.csproj.CopyComplete
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\obj\Debug\Project.MAP.dll
+C:\Users\tugbe\Desktop\NTierProject\Project.MAP\obj\Debug\Project.MAP.pdb

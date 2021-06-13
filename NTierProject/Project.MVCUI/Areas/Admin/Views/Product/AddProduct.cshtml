@@ -1,0 +1,93 @@
+﻿@model ProductVM
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /*Belirtilen class'lara sahip yapılarda yapılmasını istediğimiz ayarlamalar*/
+
+    .genislik {
+        width: 300px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+
+                <header class="panel-heading text-center" style="font-size:x-large; font-family:'Agency FB'">
+                    Ürün Ekleme
+                </header>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Ürün Adı:</label>
+                        <div class="col-sm-10">
+                            @Html.ValidationMessageFor(x => x.Product.Name)@*Bu property'de validation hatası alınıyorsa göster*@
+                            @Html.TextBoxFor(x => x.Product.Name, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ürün Fiyatı:</label>
+                        <div class="col-sm-10">
+                            @Html.ValidationMessageFor(x => x.Product.UnitPrice)@*Bu property'de validation hatası alınıyorsa göster*@
+                            @Html.TextBoxFor(x => x.Product.UnitPrice, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ürün Stok:</label>
+                        <div class="col-sm-10">
+                            @Html.ValidationMessageFor(x => x.Product.UnitInStock)@*Bu property'de validation hatası alınıyorsa göster*@
+                            @Html.TextBoxFor(x => x.Product.UnitInStock, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ürün Kategorisi:</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Product.CategoryID, new SelectList(Model.Categories, "ID", "Name"), "Lütfen Seçiniz")
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ürün Fotoğrafı:</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="image" class="form-control genislik" />
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Ekle</label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-success">Ürün Ekle</button>@*Post işleminin başlayabilmesi için buton gerekli*@
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}

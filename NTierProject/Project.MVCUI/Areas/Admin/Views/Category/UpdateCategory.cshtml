@@ -1,0 +1,67 @@
+﻿@model CategoryVM
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /*Belirtilen class'lara sahip yapılarda yapılmasını istediğimiz ayarlamalar*/
+
+    .genislik{
+
+        width:300px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Category.ID)//Update işlemi olduğundan ürünün ID'sini arka planda saklıyoruzki Action'a gittiğinde parametresine veri aktarabilsin
+
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+
+                <header class="panel-heading text-center" style="font-family:'Agency FB'; font-size:x-large">
+                    Kategori Güncelle
+                </header>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kategori Adı</label>
+                        <div class="col-sm-10">
+                            @Html.ValidationMessageFor(x => x.Category.Name)@*Bu property'de validation hatası alınıyorsa göster*@
+                            @Html.TextBoxFor(x => x.Category.Name, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Kategori Açıklaması</label>
+                        <div class="col-sm-10">
+                            @Html.ValidationMessageFor(x => x.Category.ID)@*Bu property'de validation hatası alınıyorsa göster*@
+                            @Html.TextBoxFor(x => x.Category.Description, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Güncelle</label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-success">Kategori Güncelle</button>@*Post işleminin başlayabilmesi için buton gerekli*@
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+}
